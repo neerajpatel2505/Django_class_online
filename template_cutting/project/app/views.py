@@ -9,3 +9,15 @@ def home(req):
 
 def about(req):
     return render(req,'about.html')
+
+def contact(req):
+    return render(req,'contact.html')
+
+def register(req):
+    return render(req,'register.html')
+
+def login(req):
+    return render(req,'login.html')
+
+def help(req):
+    return render(req,'help.html')
