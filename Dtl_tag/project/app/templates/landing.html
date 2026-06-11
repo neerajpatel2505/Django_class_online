@@ -5,51 +5,134 @@
 </head>
 <body>
 
-    <h2>User Registration Form</h2>
+    {% comment %} {{xyz}}<br>
+    {{xyz.name}}<br>
+    {{xyz.city}} {% endcomment %}
 
-    <form action="" method="post">
-        {% csrf_token %}
-        <label>Full Name:</label><br>
-        <input type="text" name="fullname" required><br><br>
+    {% comment %} {% if xyz %}
+        <h2>User Registration Form</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label>Full Name:</label><br>
+            <input type="text" name="fullname" required><br><br>
 
-        <label>Email:</label><br>
-        <input type="email" name="email" required><br><br>
+            <label>Email:</label><br>
+            <input type="email" name="email" required><br><br>
 
-        <label>Mobile Number:</label><br>
-        <input type="tel" name="mobile" required><br><br>
+            <label>Mobile Number:</label><br>
+            <input type="tel" name="mobile" required><br><br>
 
-        <label>Password:</label><br>
-        <input type="password" name="password" required><br><br>
+            <label>Password:</label><br>
+            <input type="password" name="password" required><br><br>
 
-        <label>Confirm Password:</label><br>
-        <input type="password" name="confirm_password" required><br><br>
+            <label>Confirm Password:</label><br>
+            <input type="password" name="confirm_password" required><br><br>
 
-        <label>Gender:</label><br>
-        <input type="radio" name="gender" value="Male"> Male
-        <input type="radio" name="gender" value="Female"> Female
-        <input type="radio" name="gender" value="Other"> Other
-        <br><br>
+            <label>Gender:</label><br>
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+            <input type="radio" name="gender" value="Other"> Other
+            <br><br>
 
-        <label>Date of Birth:</label><br>
-        <input type="date" name="dob"><br><br>
+            <label>Date of Birth:</label><br>
+            <input type="date" name="dob"><br><br>
 
-        <label>Address:</label><br>
-        <textarea name="address" rows="4" cols="30"></textarea>
-        <br><br>
+            <label>Address:</label><br>
+            <textarea name="address" rows="4" cols="30"></textarea>
+            <br><br>
 
-        <label>Course:</label><br>
-        <select name="course">
-            <option>Python Full Stack</option>
-            <option>DevOps</option>
-            <option>Django</option>
-            <option>Terraform</option>
-        </select>
-        <br><br>
+            <label>Course:</label><br>
+            <select name="course">
+                <option>Python Full Stack</option>
+                <option>DevOps</option>
+                <option>Django</option>
+                <option>Terraform</option>
+            </select>
+            <br><br>
 
-        <input type="submit" value="Register">
-        <input type="reset" value="Clear">
+            <input type="submit" value="Register">
+            <input type="reset" value="Clear">
 
-    </form>
+        </form>
+    {% endif %} {% endcomment %}
+
+    {% comment %} {% if xyz %}
+        <h3>Welcome, {{ xyz.name }} from {{ xyz.city }}!!!</h3>
+    {% else%}
+        <h3>Welcome, Guest</h3>
+    {% endif %} {% endcomment %}
+
+    {% comment %} {% if xyz %}
+        <h3>Welcome, {{ xyz.name }} from {{ xyz.city }}!!!</h3>
+        <a href="#">Logout</a><br>
+    
+    {% else%}
+        <h3>Welcome, Guest</h3>
+        <a href="#">Register</a><br>
+        <a href="#">Login</a><br>
+    {% endif %} {% endcomment %}
+
+{% comment %} <!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Landing_Page</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    {% if xyz %}
+        <a class="navbar-brand" href="#">Welcome, {{ xyz.name }}</a>
+    {% else %}
+        <a class="navbar-brand" href="#">Welcome, Guest</a>
+    {% endif %}
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        {% if xyz %}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Login</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html> {% endcomment %}
+
+
+{% if xyz %}
+    {{xyz}}
+{% elif pqr %}
+    {{pqr}}
+{% else %}
+    <h3>Welcome, Guest</h3>
+{% endif %}
 
 </body>
 </html>
