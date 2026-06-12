@@ -126,13 +126,54 @@
 </html> {% endcomment %}
 
 
-{% if xyz %}
+{% comment %} {% if xyz %}
     {{xyz}}
 {% elif pqr %}
     {{pqr}}
 {% else %}
     <h3>Welcome, Guest</h3>
-{% endif %}
+{% endif %} {% endcomment %}
+
+
+{% comment %} {% for i in pqr %}
+    <p>{{ i }}</p>
+{% endfor %} {% endcomment %}
+
+{% comment %} {% if pqr %}
+    {% for i in pqr %}
+        <p>{{ i }}</p>
+    {% endfor %}
+{% else %}
+    <p>pqr variable not found</p>
+{% endif %} {% endcomment %}
+
+{% comment %} {% for i in pqr %}
+		{% if i in 'aeiou' %}
+			{{ i }}
+		{% endif %}
+{% endfor %} {% endcomment %}
+
+{% comment %} {% for i in pqr %}
+		{% if i in [ 'a', 'e', 'i', 'o', 'u' ] %} # can not use directly in form of list.
+			{{ i }}
+		{% endif %}
+{% endfor %} {% endcomment %}
+
+{% comment %} {% for i in pqr %}
+		{{ i }}
+{% empty %}
+	<h1>for loop not executed</h1>
+{% endfor %} {% endcomment %}
+
+{% for i in pqr %}
+		{% if i in "aeiou" %}
+			{{ i }}
+		{% endif %}
+{% empty %}
+	<h1>for loop not executed</h1>
+{% endfor %}
+
+
 
 </body>
 </html>
