@@ -165,14 +165,41 @@
 	<h1>for loop not executed</h1>
 {% endfor %} {% endcomment %}
 
-{% for i in pqr %}
+{% comment %} {% for i in pqr %}
 		{% if i in "aeiou" %}
 			{{ i }}
 		{% endif %}
 {% empty %}
 	<h1>for loop not executed</h1>
+{% endfor %} {% endcomment %}
+
+
+
+{% for i in pqr %}
+ {% comment %} <h3> {{i}}</h3> {% endcomment %}
+ {% comment %} {{i}} <br /> {% endcomment %}
+ {{i}}
 {% endfor %}
 
+
+<table border="1">
+  <tr>
+    <td>S.No</td>
+    <td>Value</td>
+  </tr>
+  {% for i in pqr %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    {% comment %} <td>{{forloop.counter0}}</td> {% endcomment %}
+    {% comment %} <td>{{forloop.revcounter}}</td> {% endcomment %}
+    {% comment %} <td>{{forloop.revcounter0}}</td> {% endcomment %}
+    {% comment %} <td>{{forloop.first}}</td> {% endcomment %}
+    {% comment %} <td>{{forloop.last}}</td> {% endcomment %}
+    
+    <td>{{i}}</td>
+  </tr>
+  {% endfor %}
+</table>
 
 
 </body>
