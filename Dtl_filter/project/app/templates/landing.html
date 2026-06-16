@@ -1,0 +1,18 @@
+<center><h3>From landing page</h3>
+<form action=" {% url 'xyz' %} " method="post">
+    {% csrf_token %}
+    Enter any value:<input type="text" name="data" id="">
+    <br />
+    <input type="submit" value="Submit">
+</form>
+</center>
+
+<hr />
+<center><h3>DTL Filters</h3>
+    {{data}}<br />
+    upper : {{data | upper}} <br />
+    lower : {{data | lower}} <br />
+    title : {{data | title}} <br />
+    CapFirst : {{data | capfirst}} <br />
+
+</center>
