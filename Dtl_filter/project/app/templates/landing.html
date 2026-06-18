@@ -1,7 +1,7 @@
 <center><h3>From landing page</h3>
 <form action=" {% url 'xyz' %} " method="post">
     {% csrf_token %}
-    Enter any value:<input type="text" name="data" id="">
+    Enter any value:<input type="text" value="{{data}}" name="data" id="">
     <br />
     <input type="submit" value="Submit">
 </form>
@@ -14,5 +14,36 @@
     lower : {{data | lower}} <br />
     title : {{data | title}} <br />
     CapFirst : {{data | capfirst}} <br />
-
+    Truncatechars : {{data | truncatechars:5}}<br />
+    Truncatewords : {{data | truncatewords:2}} <br />
+    wordcount : {{data | wordcount }} <br />
+    length : {{ data | length}}
 </center>
+<hr />
+<h1> Alignment </h1>
+    {{data}} <br />
+    <pre> Center : {{ data | center:80}} </pre> 
+    <pre> Ljustification : {{ data | ljust:80}} </pre> 
+    <pre> Rjustification : {{ data | rjust:80}} </pre> 
+
+<hr />
+<h1> Cut </h1>
+{{data}}<br />
+Cut space :{{ data | cut:" "}}<br />
+Cut char 'a' :{{ data | cut:"a"}}<br />
+Cut char 'is' :{{ data | cut:"is"}}<br />
+
+<hr />
+<h1> Join </h1>
+{{data}}<br />
+join space :{{ data | join:" "}}<br />
+join char 'a' :{{ data | join:"a"}}<br />
+join char 'is' :{{ data | join:"is"}}<br />
+join special charactor : {{ data | join:"-"}}<br />
+join special charactor : {{ data | join:"#"}}<br />
+
+<hr />
+<h1> Default </h1>
+{{data}}<br />
+Default: Welcome {{data1 | default:"Guest"}}<br />
+Default: Welcome {{data | default:"Guest"}}
