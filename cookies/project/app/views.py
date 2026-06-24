@@ -34,11 +34,27 @@ def get_cookies(req):
     #     'token':t
     # }
     data = {
-        'name':req.COOKIES.get('name'),
-        'email':req.COOKIES.get('email'),
-        'age':req.COOKIES.get('age'),
+        'name':req.COOKIES.get('name','Guest'),
+        'email':req.COOKIES.get('email','guest@gmail.com'),
+        'age':req.COOKIES.get('age','0'),
         'token':req.COOKIES.get('csrftoken')
     }
     return render(req,'landing.html',{'data':data})
 
+def delete_cookies(req):
+    print("Cookies data deleted........")
+    # if 'name' in req.COOKIES:
+    #     response = render(req,'landing.html',{'msg':" name data deleted from cookies..."})
+    #     response.delete_cookie('name')
+    #     return response
+    if 'name' in req.COOKIES and 'age' in req.COOKIES and 'email' in req.COOKIES:
+        response = render(req,'landing.html',{'msg':"Cookies are deleted..."})
+        response.delete_cookie('name')
+        response.delete_cookie('email')
+        response.delete_cookie('age')
+        return response
+
+    else:
+        response = render(req,'landing.html',{'msg':"Cookies are not found"})
+        return response    
 

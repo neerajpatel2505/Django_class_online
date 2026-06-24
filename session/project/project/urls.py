@@ -18,11 +18,10 @@ from django.contrib import admin
 from django.urls import path
 from app import views
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.landing,name='landing'),
-    path('set_cookies/',views.set_cookies,name='set_cookies'),
-    path('get_cookies/',views.get_cookies,name='get_cookies'),
-    path('delete_cookies/',views.delete_cookies,name='delete_cookies')
+    path('set/',views.set,name='set'),
+    path('get/',views.get,name='get'),
+    path('delete/',views.delete,name='delete'),
 ]

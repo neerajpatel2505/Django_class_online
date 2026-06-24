@@ -1,9 +1,9 @@
 <div style="text-align:center">
-    <a href=" {% url 'set_cookies' %}"> <button type="submit">set_cookies</button> </a>
+    <a href="{% url 'set' %}"> <button type="submit">set_session</button> </a>
     <br /> <br />
-    <a href="{% url 'get_cookies' %}"> <button type="submit">get_cookies</button> </a>
+    <a href="{% url 'get' %}"> <button type="submit">get_session</button> </a>
     <br /> <br />
-    <a href="{% url 'delete_cookies' %}"> <button type="submit">delete_cookies</button> </a><br /> <br />
+    <a href="{% url 'delete' %}"> <button type="submit">delete_session</button> </a><br /> <br />
 </div>
 <hr />
 <div style="text-align:center"> 
@@ -13,15 +13,15 @@
             Name: <input type="text" name="fname" id=""><br />
             Email: <input type="email" name="my_email" id=""> <br />
             Age: <input type="number" name="my_age" id=""> <br />
-            <input type="submit" value="Set-Cookies-data"> <br />
+            <input type="submit" value="Set-Session-data"> <br />
         </form>
-    {% elif set_done %}
-    <h3>Our Cookies are set........</h3>
+    {% elif set_data %}
+    <h3>Our Sessions are set........</h3>
     {% elif data %}
         My Name is : {{data.name}} <br />
         My Age is : {{data.age}} <br />
         My Email is : {{data.email}} <br />
     {% elif msg %}
-        {{msg}}
+    {{msg}}
     {% endif %}
 </div>
