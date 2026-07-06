@@ -10,7 +10,7 @@ def set_cookies(req):
         n = req.POST.get('fname')
         e = req.POST.get('my_email')
         a = req.POST.get('my_age')
-        print(n,e,a)
+        # print(n,e,a)
         response = render(req,'landing.html',{'set_done':True})
         response.set_cookie('name',n,secure=True)
         response.set_cookie('email',e,max_age=60*60*24)

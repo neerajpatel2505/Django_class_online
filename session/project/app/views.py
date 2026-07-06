@@ -1,9 +1,28 @@
 from django.shortcuts import render
 from django.contrib.sessions.models import Session
-
+from .models import Student
 
 # Create your views here.
 def landing(req):
+    # Query syntex :- Model_name.objects.query() 
+    
+    # Student.objects.create(stu_name="Neeraj",stu_email="n@gmail.com", stu_city="Bhopal") 
+    # Student.objects.bulk_create([Student(stu_name="Raj",stu_email="r@gmail.com", stu_city="Indore"),
+    #                              Student(stu_name="Jai",stu_email="j@gmail.com", stu_city="Jabalpur"),
+    #                              Student(stu_name="Vishnu",stu_email="v@gmail.com", stu_city="Dehli")
+    #                              ])
+
+    data = Student.objects.earliest('stu_name')
+    print("Earliest:",data)
+
+    data = Student.objects.latest('stu_name')
+    print("Latest:",data)
+
+    data = Student.objects.earliest('stu_city')
+    print("Earliest_city:",data)
+    
+    data = Student.objects.latest('stu_city')
+    print("Latest_city:",data)
     return render(req,'landing.html')
 
 def set(req):
