@@ -4,6 +4,24 @@ from .models import Student
 
 # Create your views here.
 def landing(req):
+    # data = Student.objects.all()
+    # print(data)
+
+    # data = Student.objects.filter(stu_name="Raj")
+    # data = Student.objects.filter(stu_city="Indore")
+    # data = Student.objects.exclude(stu_city="Indore")
+    # data = Student.objects.values()
+    # data = Student.objects.values_list()
+    # data = Student.objects.values("stu_name",'stu_city')
+    # data = Student.objects.values_list("stu_name",'stu_city')
+    # data = Student.objects.order_by("-stu_name")  # decending order
+    data = Student.objects.order_by("stu_name")     # assending order
+
+
+    print(data)
+    return render(req,'landing.html')
+
+    # 1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 , 9, 10   10,9,8,7,6,5,4,3,2,1   10,9,8,7,6   6,7,8,9,10
     # Query syntex :- Model_name.objects.query() 
     
     # Student.objects.create(stu_name="Neeraj",stu_email="n@gmail.com", stu_city="Bhopal") 
@@ -12,19 +30,20 @@ def landing(req):
     #                              Student(stu_name="Vishnu",stu_email="v@gmail.com", stu_city="Dehli")
     #                              ])
 
-    data = Student.objects.earliest('stu_name')
-    print("Earliest:",data)
+    # data = Student.objects.earliest('stu_name')
+    # print("Earliest:",data)
 
-    data = Student.objects.latest('stu_name')
-    print("Latest:",data)
+    # data = Student.objects.latest('stu_name')
+    # print("Latest:",data)
 
-    data = Student.objects.earliest('stu_city')
-    print("Earliest_city:",data)
+    # data = Student.objects.earliest('stu_city')
+    # print("Earliest_city:",data)
     
-    data = Student.objects.latest('stu_city')
-    print("Latest_city:",data)
-    return render(req,'landing.html')
+    # data = Student.objects.latest('stu_city')
+    # print("Latest_city:",data)
+    # return render(req,'landing.html')
 
+   
 def set(req):
     if req.method == 'POST':
         # print(req.POST)

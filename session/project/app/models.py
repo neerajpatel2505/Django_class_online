@@ -8,3 +8,6 @@ class Student(models.Model):
 
     def __str__(self):
         return self.stu_name
+    
+    # def __str__(self):
+    #     return self.stu_name + " "+self.stu_email+" "+self.stu_city
