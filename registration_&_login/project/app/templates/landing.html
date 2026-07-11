@@ -3,13 +3,8 @@
 
 
 {% if register %}
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
-
     <style>
         *{
             margin:0;
@@ -101,99 +96,89 @@
         }
     </style>
 </head>
-<body>
 
-    <div class="container">
-        <h1 style="color:green"> {{msg}} </h1>
-        <h2>Registration Form</h2>
+<div class="container">
+    <h1 style="color:green"> {{msg}} </h1>
+    <h2>Registration Form</h2>
 
-        <form action="" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <label>Name</label>
-            <input type="text" name="name" placeholder="Enter your name" required>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Enter your name" required>
 
-            <label>Email</label>
-            <input type="email" name="email" placeholder="Enter your email" required>
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
 
-            <label>City</label>
-            <select name="city" required>
-                <option value="">Select City</option>
-                <option>Bhopal</option>
-                <option>Indore</option>
-                <option>Delhi</option>
-                <option>Mumbai</option>
-                <option>Pune</option>
-            </select>
+        <label>City</label>
+        <select name="city" required>
+            <option value="">Select City</option>
+            <option>Bhopal</option>
+            <option>Indore</option>
+            <option>Delhi</option>
+            <option>Mumbai</option>
+            <option>Pune</option>
+        </select>
 
-            <label>Profile Image</label>
-            <input type="file" name="image" accept="image/*">
+        <label>Profile Image</label>
+        <input type="file" name="image" accept="image/*">
 
-            <label>Resume</label>
-            <input type="file" name="resume" accept=".pdf,.doc,.docx">
+        <label>Resume</label>
+        <input type="file" name="resume" accept=".pdf,.doc,.docx">
 
-            <label>Password</label>
-            <input type="password" name="password" placeholder="Enter password" required>
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter password" required>
 
-            <label>Con_Password</label>
-            <input type="password" name="con_password" placeholder="Enter password" required>
+        <label>Con_Password</label>
+        <input type="password" name="con_password" placeholder="Enter password" required>
 
-            <label>Gender</label>
+        <label>Gender</label>
 
-            <div class="gender">
-                <label>
-                    <input type="radio" name="gender" value="Male" required>
-                    Male
-                </label>
+        <div class="gender">
+            <label>
+                <input type="radio" name="gender" value="Male" required>
+                Male
+            </label>
 
-                <label>
-                    <input type="radio" name="gender" value="Female">
-                    Female
-                </label>
+            <label>
+                <input type="radio" name="gender" value="Female">
+                Female
+            </label>
 
-                <label>
-                    <input type="radio" name="gender" value="Other">
-                    Other
-                </label>
-            </div>
+            <label>
+                <input type="radio" name="gender" value="Other">
+                Other
+            </label>
+        </div>
 
-            <label>Qualification</label>
+        <label>Qualification</label>
 
-            <select name="qualification" required>
-                <option value="">Select Qualification</option>
-                <option>10th</option>
-                <option>12th</option>
-                <option>Diploma</option>
-                <option>BCA</option>
-                <option>B.Tech</option>
-                <option>MCA</option>
-                <option>M.Tech</option>
-                <option>Other</option>
-            </select>
+        <select name="qualification" required>
+            <option value="">Select Qualification</option>
+            <option>10th</option>
+            <option>12th</option>
+            <option>Diploma</option>
+            <option>BCA</option>
+            <option>B.Tech</option>
+            <option>MCA</option>
+            <option>M.Tech</option>
+            <option>Other</option>
+        </select>
 
-            <label>Description</label>
+        <label>Description</label>
 
-            <textarea name="description" rows="5" placeholder="Write about yourself"></textarea>
+        <textarea name="description" rows="5" placeholder="Write about yourself"></textarea>
 
-            <div class="buttons">
-                <button type="submit" class="submit">Register</button>
-                <button type="reset" class="reset">Reset</button>
-            </div>
+        <div class="buttons">
+            <button type="submit" class="submit">Register</button>
+            <button type="reset" class="reset">Reset</button>
+        </div>
+    </form>
+</div>
 
-        </form>
-
-    </div>
-
-    </body>
-    </html>
 
 {% elif login %}
-    <!DOCTYPE html>
-    <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login Form</title>
-
         <style>
             *{
                 margin:0;
@@ -280,13 +265,12 @@
             }
         </style>
     </head>
-    <body>
 
     <div class="container">
         <h1 style="color:green"> {{msg}} </h1>
         <h2>User Login</h2>
 
-        <form action="{% url 'login' %}" method="post">
+        <form method="post">
              {% csrf_token %}
             <label>Email</label>
             <input
@@ -324,6 +308,4 @@
 
     </div>
 
-    </body>
-    </html>
 {% endif %}
